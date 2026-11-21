@@ -1,0 +1,812 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Last Whistle FC</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,800;1,900&family=Barlow:wght@400;500;600&family=Bangers&family=Permanent+Marker&display=swap">
+<style>
+/* Layout: a floodlit evening hero in banner sky colours, gold brush strokes cut across navy sections, a podium for prizes, pitch-line motifs behind the rules. */
+:root {
+  --night: #CF402A;
+  --ink: #2a0a05;
+  --navy: #B83622;
+  --sky: #de5a3f;
+  --gold: #f6c91c;
+  --ember: #ff9a3c;
+  --chalk: #fdf6e3;
+  --mist: #ffe9e0;
+  --line: rgba(253, 246, 227, 0.16);
+  --f-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --f-funk: "Bangers", "Permanent Marker", "Comic Sans MS", cursive;
+  --f-brush: "Permanent Marker", "Marker Felt", cursive;
+  --f-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--night);
+  color: var(--chalk);
+  font: 400 1.0625rem/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.eyebrow {
+  font: 700 0.85rem/1 var(--f-display);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 0.9rem;
+}
+h2.title {
+  font: italic 800 clamp(2.4rem, 7vw, 4rem)/0.95 var(--f-display);
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin: 0 0 1.4rem;
+}
+h2.title::after {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 0.4rem;
+  margin-top: 0.9rem;
+  background: var(--gold);
+  transform: skewX(-24deg);
+}
+.lead { color: #fff; font-weight: 500; max-width: 62ch; margin: 0 0 2rem; }
+section { padding-block: clamp(3.5rem, 9vw, 6rem); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
+  padding-top: calc(env(safe-area-inset-top, 0px) + 1rem);
+  padding-bottom: 11rem;
+  background:
+    radial-gradient(60% 45% at 85% 78%, rgba(255, 190, 120, 0.55), transparent 70%),
+    radial-gradient(50% 40% at 15% 62%, rgba(242, 140, 58, 0.5), transparent 70%),
+    linear-gradient(180deg, #9C2A16 0%, #CF402A 45%, #DB6A38 72%, #E49C48 100%);
+}
+.hero .wrap { position: relative; z-index: 2; }
+.scene { position: absolute; z-index: 1; pointer-events: none; }
+.scene-trees { left: -4%; bottom: 0; width: min(52%, 460px); }
+.scene-light { right: 27%; bottom: 0; width: clamp(70px, 11vw, 120px); overflow: visible; }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.5rem 2.5rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font: italic 800 1.35rem/1 var(--f-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.brand svg { width: 28px; height: 22px; flex: none; }
+.nav-links { display: flex; align-items: center; gap: 1.6rem; }
+.nav-links a {
+  font: 700 0.95rem/1 var(--f-display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav-links a.link:hover { color: var(--gold); }
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  font: 400 1.35rem/1 var(--f-funk);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem 0.8rem;
+  border: 0;
+  cursor: pointer;
+  transform: skewX(-12deg);
+  transition: background 0.15s, transform 0.15s;
+}
+.btn > span { display: inline-block; transform: skewX(12deg); }
+.btn:hover { background: #ffd93d; transform: skewX(-12deg) rotate(-2deg) scale(1.05); }
+.nav-links a.btn { font: 400 1.2rem/1 var(--f-funk); letter-spacing: 0.08em; }
+.btn.ghost { background: transparent; color: var(--chalk); box-shadow: inset 0 0 0 2px var(--chalk); }
+.btn.ghost:hover { background: rgba(253, 246, 227, 0.12); }
+.btn.sm { padding: 0.6rem 1.1rem 0.55rem; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+.tag {
+  font: 400 clamp(1.1rem, 2.6vw, 1.7rem)/1.15 var(--f-brush);
+  text-shadow: 0 2px 10px rgba(20, 2, 5, 0.5);
+  margin: 0;
+}
+.tag-l { transform: rotate(-6deg); justify-self: start; }
+.tag-r { transform: rotate(5deg); justify-self: end; text-align: right; text-transform: uppercase; color: var(--chalk); }
+.hero-main { text-align: center; }
+.crown { width: clamp(48px, 7vw, 76px); display: block; margin: 0 auto 0.3rem; }
+h1.logo {
+  margin: 0;
+  font: italic 900 clamp(3.4rem, 13.5vw, 9rem)/0.86 var(--f-display);
+  text-transform: uppercase;
+  text-shadow: 0 4px 0 rgba(20, 2, 5, 0.28), 0 10px 30px rgba(20, 2, 5, 0.35);
+}
+h1.logo .fc {
+  display: block;
+  font: 400 clamp(3.2rem, 12vw, 8rem)/1 var(--f-brush);
+  color: var(--gold);
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+  margin-top: 0.1em;
+}
+.strap {
+  display: inline-block;
+  margin: 1.6rem 0 0;
+  background: var(--gold);
+  color: var(--ink);
+  transform: skewX(-14deg) rotate(-1.5deg);
+  padding: 0.5rem 1.4rem;
+  box-shadow: 0 6px 20px rgba(20, 2, 5, 0.35);
+}
+.strap span {
+  display: inline-block;
+  transform: skewX(14deg);
+  font: italic 800 clamp(1.1rem, 3vw, 1.7rem)/1.1 var(--f-display);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.hero-foot {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.6rem 3rem;
+}
+.clock-label { font: 700 0.85rem/1.4 var(--f-display); letter-spacing: 0.2em; text-transform: uppercase; margin: 0 0 0.6rem; }
+.clock { display: flex; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.clock li {
+  min-width: 4.4rem;
+  padding: 0.6rem 0.5rem 0.5rem;
+  text-align: center;
+  background: rgba(110, 14, 3, 0.72);
+  border-top: 3px solid var(--gold);
+}
+.clock b {
+  display: block;
+  font: italic 800 2.2rem/1 var(--f-display);
+  font-variant-numeric: tabular-nums;
+}
+.clock small { font: 600 0.7rem/1 var(--f-display); letter-spacing: 0.18em; text-transform: uppercase; color: var(--mist); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* ---------- Goal animation ---------- */
+.pitch {
+  --gw: clamp(120px, 17vw, 180px);
+  --bs: calc(var(--gw) * 0.25);
+  --stop: calc(95% - var(--gw) * 0.30 - var(--bs) / 2);
+  position: absolute; left: 0; right: 0; bottom: 14px; height: 160px; z-index: 2; pointer-events: none; overflow: hidden;
+}
+.pitch::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 3px; background: rgba(253, 246, 227, 0.4); }
+.goal { position: absolute; right: 5%; bottom: 4px; width: var(--gw); height: calc(var(--gw) * 0.62); overflow: visible; }
+.net { transform-box: fill-box; transform-origin: 0% 50%; animation: net-wobble 5s infinite; }
+.ball-run { position: absolute; bottom: 6px; left: 12%; width: var(--bs); height: var(--bs); animation: ball-run 5s infinite; }
+.ball-hop { animation: ball-hop 5s infinite; }
+.ball { display: block; width: 100%; height: 100%; animation: ball-spin 5s infinite; filter: drop-shadow(0 2px 3px rgba(20, 2, 5, 0.35)); }
+.ball-shadow { position: absolute; left: 10%; right: 10%; bottom: -4px; height: calc(var(--bs) * 0.2); border-radius: 50%; background: rgba(20, 2, 5, 0.4); animation: ball-shade 5s infinite; }
+.goal-word {
+  position: absolute; right: calc(5% + var(--gw) * 0.1); bottom: calc(var(--gw) * 0.62 + 12px);
+  font: 400 clamp(1.7rem, 3.6vw, 2.5rem)/1 var(--f-brush); text-transform: uppercase; color: var(--gold);
+  text-shadow: 0 3px 0 rgba(20, 2, 5, 0.55); transform-origin: 50% 100%; opacity: 0; animation: goal-word 5s infinite;
+}
+@keyframes ball-run {
+  0%, 8% { left: 12%; opacity: 1; animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1); }
+  14% { left: var(--stop); animation-timing-function: ease-out; }
+  19% { left: calc(var(--stop) + 8px); animation-timing-function: ease-in-out; }
+  26% { left: calc(var(--stop) + 2px); opacity: 1; }
+  92% { left: calc(var(--stop) + 2px); opacity: 1; }
+  96% { left: calc(var(--stop) + 2px); opacity: 0; }
+  97% { left: 12%; opacity: 0; }
+  100% { left: 12%; opacity: 1; }
+}
+@keyframes ball-hop {
+  0%, 8% { transform: translateY(0); animation-timing-function: cubic-bezier(0.1, 0.6, 0.4, 1); }
+  11% { transform: translateY(calc(var(--gw) * -0.18)); animation-timing-function: ease-in; }
+  14% { transform: translateY(calc(var(--gw) * -0.07)); animation-timing-function: ease-in; }
+  18% { transform: translateY(0); animation-timing-function: ease-out; }
+  20% { transform: translateY(calc(var(--gw) * -0.03)); animation-timing-function: ease-in; }
+  22%, 100% { transform: translateY(0); }
+}
+@keyframes ball-spin {
+  0%, 8% { transform: rotate(0deg); animation-timing-function: linear; }
+  14% { transform: rotate(1440deg); animation-timing-function: ease-out; }
+  24%, 100% { transform: rotate(1800deg); }
+}
+@keyframes ball-shade {
+  0%, 8% { transform: scale(1); opacity: 1; animation-timing-function: ease-out; }
+  11% { transform: scale(0.75); opacity: 0.7; animation-timing-function: ease-in; }
+  14% { transform: scale(0.9); opacity: 0.85; }
+  18%, 100% { transform: scale(1); opacity: 1; }
+}
+@keyframes ball-trail {
+  0%, 7% { opacity: 0; transform: scaleX(0.3); }
+  9% { opacity: 0.95; transform: scaleX(1); }
+  13% { opacity: 0.8; transform: scaleX(1); }
+  16%, 100% { opacity: 0; transform: scaleX(0.4); }
+}
+@keyframes net-wobble {
+  0%, 13% { transform: scale(1, 1); }
+  15% { transform: scale(1.14, 1.05); }
+  19% { transform: scale(0.96, 0.99); }
+  23% { transform: scale(1.05, 1.02); }
+  28%, 100% { transform: scale(1, 1); }
+}
+@keyframes goal-word {
+  0%, 13% { opacity: 0; transform: scale(0.3) rotate(-8deg); }
+  16% { opacity: 1; transform: scale(1.35) rotate(-6deg); }
+  20%, 90% { opacity: 1; transform: scale(1) rotate(-6deg); }
+  96%, 100% { opacity: 0; transform: scale(1) rotate(-6deg); }
+}
+.ball-hop { position: relative; }
+.ball-trail {
+  position: absolute; right: 70%; top: 32%; width: calc(var(--bs) * 2.6); height: calc(var(--bs) * 0.34);
+  border-radius: 999px; background: linear-gradient(90deg, rgba(253, 246, 227, 0), rgba(253, 246, 227, 0.85));
+  transform-origin: 100% 50%; opacity: 0; animation: ball-trail 5s infinite;
+}
+@media (max-width: 700px) { .scene-light { display: none; } }
+
+/* ---------- Key facts band ---------- */
+.band {
+  background: var(--gold);
+  color: var(--ink);
+  padding-block: 1.1rem;
+}
+.band ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 2.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: italic 800 1.2rem/1.3 var(--f-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.band li::before { content: "\2022"; margin-right: 0.7rem; }
+
+/* ---------- Prizes ---------- */
+#prizes { background: var(--navy); }
+.podium {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 1rem;
+}
+.prize {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1.6rem 1.5rem 1.8rem;
+  min-width: 0;
+}
+.prize .rank { font: 700 0.85rem/1 var(--f-display); letter-spacing: 0.22em; text-transform: uppercase; margin: 0; }
+.prize h3 { font: italic 800 clamp(1.7rem, 3.4vw, 2.2rem)/1 var(--f-display); text-transform: uppercase; margin: 0.35rem 0 0; }
+.prize .amt { font: italic 900 clamp(3rem, 6vw, 4.6rem)/0.9 var(--f-display); margin: 0; font-variant-numeric: tabular-nums; }
+.prize ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.prize li {
+  font: 700 0.9rem/1 var(--f-display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.8rem;
+  border: 2px solid currentColor;
+}
+.prize.champ { order: 2; min-height: 25rem; background: var(--gold); color: var(--ink); }
+.prize.runner { order: 1; min-height: 20rem; background: #932815; box-shadow: inset 0 0 0 2px var(--mist); }
+.prize.best { order: 3; min-height: 20rem; background: #7E2314; box-shadow: inset 0 0 0 2px var(--ember); }
+.prize.best .rank { color: var(--ember); }
+.prize.best .amt { font: 400 clamp(2.4rem, 4.6vw, 3.4rem)/1 var(--f-brush); color: var(--ember); }
+.prize p.note { margin: 0; color: var(--mist); font-size: 0.98rem; }
+.prize.champ p.note { color: #3a3510; }
+.pool { margin: 1.6rem 0 0; color: var(--mist); }
+.pool b { color: var(--chalk); font-weight: 600; }
+
+/* ---------- Format ---------- */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 1.2rem;
+  counter-reset: step;
+}
+.steps li {
+  counter-increment: step;
+  padding: 1.4rem 1.3rem 1.5rem;
+  border-top: 3px solid var(--gold);
+  background: rgba(110, 14, 3, 0.7);
+  min-width: 0;
+}
+.steps li::before {
+  content: counter(step);
+  display: block;
+  font: 400 2.6rem/1 var(--f-brush);
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.steps h3 { font: italic 800 1.6rem/1 var(--f-display); text-transform: uppercase; margin: 0 0 0.5rem; }
+.steps p { margin: 0; color: var(--mist); }
+
+/* ---------- Rules ---------- */
+#rules { position: relative; overflow: hidden; background: #9E2E1D; }
+#rules::before, #rules::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 3px solid rgba(253, 246, 227, 0.07);
+}
+#rules::before { width: 520px; height: 520px; border-radius: 50%; right: -220px; top: 40px; }
+#rules::after { width: 3px; height: 100%; right: 40px; top: 0; border: 0; background: rgba(253, 246, 227, 0.07); }
+#rules .wrap { position: relative; z-index: 1; }
+.rules-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+.scroll-x { overflow-x: auto; }
+table.regs { width: 100%; border-collapse: collapse; background: rgba(110, 14, 3, 0.7); }
+table.regs th, table.regs td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--line); }
+table.regs thead th {
+  font: 700 0.82rem/1 var(--f-display);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold);
+}
+table.regs tbody th { font: 700 1.05rem/1.2 var(--f-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+table.regs td { font-weight: 500; }
+.card { background: rgba(110, 14, 3, 0.7); padding: 1.5rem 1.5rem 1.6rem; border-left: 4px solid var(--ember); min-width: 0; }
+.card h3 { font: italic 800 1.7rem/1 var(--f-display); text-transform: uppercase; margin: 0 0 0.9rem; }
+.card h3 em { color: var(--ember); font-style: italic; }
+.rule-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+.rule-list li { position: relative; padding-left: 1.5rem; }
+.rule-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.8rem;
+  height: 0.28rem;
+  background: var(--gold);
+  transform: skewX(-24deg);
+}
+.rules-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.4rem;
+  margin-top: 1.4rem;
+}
+.rules-cols .card { border-left-color: var(--gold); }
+
+/* ---------- Register ---------- */
+#register { background: var(--navy); }
+.reg-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: start;
+}
+.fee {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  margin: 0 0 1.4rem;
+}
+.fee b { font: italic 900 4.2rem/0.9 var(--f-display); color: var(--gold); font-variant-numeric: tabular-nums; }
+.fee span { font: 700 1rem/1.2 var(--f-display); letter-spacing: 0.16em; text-transform: uppercase; }
+.deadline {
+  display: inline-block;
+  margin: 0 0 1.4rem;
+  padding: 0.5rem 1rem;
+  background: var(--chalk);
+  color: #9E2E1D;
+  font: 800 1.05rem/1.2 var(--f-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.bring { margin: 0; }
+form.reg { display: grid; gap: 1rem; background: rgba(110, 14, 3, 0.75); padding: 1.6rem; border-top: 4px solid var(--gold); min-width: 0; }
+.field { display: grid; gap: 0.35rem; min-width: 0; }
+.field label { font: 700 0.82rem/1 var(--f-display); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.field input[type="text"], .field input[type="tel"], .field input[type="number"], .field textarea {
+  width: 100%;
+  font: 500 1rem/1.4 var(--f-body);
+  color: var(--chalk);
+  background: #7E2314;
+  border: 2px solid rgba(240, 198, 189, 0.35);
+  padding: 0.75rem 0.85rem;
+  border-radius: 0;
+}
+.field input:focus, .field textarea:focus { border-color: var(--gold); outline: none; }
+.field textarea { resize: vertical; min-height: 9.5rem; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.92rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.agree { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.98rem; }
+.agree input { width: 1.25rem; height: 1.25rem; margin-top: 0.2rem; accent-color: var(--gold); flex: none; }
+.status { min-height: 1.4em; margin: 0; font-weight: 600; color: var(--gold); }
+.small { color: var(--mist); font-size: 0.95rem; margin: 0; }
+
+.signup { display: grid; gap: 1rem; justify-items: start; background: rgba(110, 14, 3, 0.75); padding: 2rem 1.8rem; border-top: 4px solid var(--gold); min-width: 0; }
+.signup h3 { font: italic 800 clamp(2rem, 5vw, 2.8rem)/1 var(--f-display); text-transform: uppercase; margin: 0; }
+.signup p { margin: 0; }
+.signup .eyebrow { margin: 0; }
+
+/* ---------- Footer ---------- */
+footer { background: var(--night); padding-block: 3.5rem 3rem; text-align: center; border-top: 4px solid var(--gold); }
+footer .motto {
+  font: italic 900 clamp(1.9rem, 6vw, 3.6rem)/1 var(--f-display);
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin: 0 0 1rem;
+}
+footer .motto b { color: var(--gold); font-weight: inherit; }
+footer p { color: var(--mist); margin: 0; }
+
+@media (max-width: 860px) {
+  .podium { grid-template-columns: minmax(0, 1fr); }
+  .prize.champ { order: 1; min-height: 0; }
+  .prize.runner { order: 2; min-height: 0; }
+  .prize.best { order: 3; min-height: 0; }
+  .rules-top, .reg-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); text-align: center; }
+  .tag-l, .tag-r { justify-self: center; text-align: center; }
+  .tag-r { order: 3; }
+  .nav-links .link { display: none; }
+}
+@media (max-width: 480px) {
+  .two { grid-template-columns: minmax(0, 1fr); }
+  .clock li { min-width: 3.6rem; }
+  .clock b { font-size: 1.8rem; }
+  table.regs th, table.regs td { padding: 0.75rem 0.8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ball-run { animation: none; left: var(--stop); }
+  .ball-hop, .ball, .ball-shadow, .net, .goal-word, .ball-trail { animation: none; }
+  .btn, .btn:hover { transition: none; }
+}
+
+</style>
+
+<header class="hero">
+  <svg class="scene scene-trees" viewBox="0 0 360 220" aria-hidden="true">
+    <g fill="#3a0f08">
+      <circle cx="80" cy="115" r="72"/><circle cx="150" cy="82" r="62"/><circle cx="36" cy="138" r="52"/>
+      <circle cx="210" cy="125" r="56"/><circle cx="270" cy="160" r="44"/>
+      <rect x="0" y="160" width="360" height="60"/>
+    </g>
+  </svg>
+  <svg class="scene scene-light" viewBox="0 0 120 240" aria-hidden="true">
+    <defs>
+      <radialGradient id="glow"><stop offset="0" stop-color="#fff7d6" stop-opacity="0.95"/><stop offset="1" stop-color="#fff7d6" stop-opacity="0"/></radialGradient>
+    </defs>
+    <circle cx="60" cy="48" r="90" fill="url(#glow)"/>
+    <rect x="56" y="72" width="8" height="168" fill="#3a0f08"/>
+    <rect x="20" y="20" width="80" height="54" rx="4" fill="#4a0e06"/>
+    <g fill="#fff7d6">
+      <circle cx="38" cy="36" r="8"/><circle cx="60" cy="36" r="8"/><circle cx="82" cy="36" r="8"/>
+      <circle cx="38" cy="58" r="8"/><circle cx="60" cy="58" r="8"/><circle cx="82" cy="58" r="8"/>
+    </g>
+  </svg>
+
+  <div class="pitch" aria-hidden="true">
+    <div class="ball-run">
+      <div class="ball-hop">
+        <span class="ball-trail"></span>
+        <svg class="ball" viewBox="-50 -50 100 100">
+          <defs><clipPath id="ballclip"><circle r="47"/></clipPath></defs>
+          <circle r="47" fill="#fdf6e3"/>
+          <g clip-path="url(#ballclip)" fill="#2a0a05" stroke="#2a0a05" stroke-width="1.6" stroke-linejoin="round">
+            <polygon points="0,-16 15.2,-4.9 9.4,13 -9.4,13 -15.2,-4.9"/>
+            <g fill="none" stroke-width="1.8" stroke-linecap="round">
+              <line x1="0" y1="-16" x2="0" y2="-30"/>
+              <line x1="15.2" y1="-4.9" x2="28.5" y2="-9.3"/>
+              <line x1="9.4" y1="13" x2="17.6" y2="24.3"/>
+              <line x1="-9.4" y1="13" x2="-17.6" y2="24.3"/>
+              <line x1="-15.2" y1="-4.9" x2="-28.5" y2="-9.3"/>
+            </g>
+            <polygon id="bp" points="0,-53 12.36,-44.02 7.64,-29.48 -7.64,-29.48 -12.36,-44.02"/>
+            <use href="#bp" transform="rotate(72)"/>
+            <use href="#bp" transform="rotate(144)"/>
+            <use href="#bp" transform="rotate(216)"/>
+            <use href="#bp" transform="rotate(288)"/>
+          </g>
+          <circle r="47" fill="none" stroke="#2a0a05" stroke-width="3"/>
+        </svg>
+      </div>
+      <span class="ball-shadow"></span>
+    </div>
+    <svg class="goal" viewBox="0 0 170 106">
+      <defs>
+        <pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M12 0H0V12" fill="none" stroke="#fdf6e3" stroke-opacity="0.65" stroke-width="1"/></pattern>
+      </defs>
+      <g class="net">
+        <polygon points="7,3 152,18 152,104 7,104" fill="#fdf6e3" fill-opacity="0.1"/>
+        <polygon points="7,3 152,18 152,104 7,104" fill="url(#mesh)"/>
+      </g>
+      <line x1="6" y1="3" x2="152" y2="18" stroke="#fdf6e3" stroke-width="5" stroke-linecap="round"/>
+      <line x1="152" y1="18" x2="152" y2="104" stroke="#fdf6e3" stroke-width="4"/>
+      <line x1="6" y1="104" x2="152" y2="104" stroke="#fdf6e3" stroke-opacity="0.8" stroke-width="3"/>
+      <rect x="2" y="0" width="7" height="106" rx="2" fill="#fdf6e3"/>
+    </svg>
+    <span class="goal-word">Goal!</span>
+  </div>
+
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 28 22" aria-hidden="true"><path d="M2 20 L2 6 L9 12 L14 2 L19 12 L26 6 L26 20 Z" fill="none" stroke="#f6c91c" stroke-width="2.4" stroke-linejoin="round"/></svg>
+        Last Whistle FC
+      </a>
+      <div class="nav-links">
+        <a class="link" href="#prizes">Prizes</a>
+        <a class="link" href="#format">Format</a>
+        <a class="link" href="#rules">Rules</a>
+        <a class="btn sm" href="https://forms.gle/hJcE2ZtrJ642zCvk9" target="_blank" rel="noopener"><span>Register</span></a>
+      </div>
+    </nav>
+
+    <div class="hero-grid" id="top">
+      <p class="tag tag-l">Same Game.<br>Different Stories.</p>
+      <div class="hero-main">
+        <svg class="crown" viewBox="0 0 76 56" aria-hidden="true"><path d="M6 48 L6 16 L22 30 L38 6 L54 30 L70 16 L70 48 Z" fill="none" stroke="#f6c91c" stroke-width="5" stroke-linejoin="round"/><path d="M4 53 H72" stroke="#f6c91c" stroke-width="4"/></svg>
+        <h1 class="logo">Last Whistle <span class="fc">FC</span></h1>
+        <p class="strap"><span>Registration open until 13 Dec</span></p>
+      </div>
+      <p class="tag tag-r">7-a-side<br>football<br>tournament</p>
+    </div>
+
+    <div class="hero-foot">
+      <div>
+        <p class="clock-label">Registration closes Sunday 13 December 2026</p>
+        <ul class="clock" id="clock" aria-live="off">
+          <li><b id="cd-d">--</b><small>Days</small></li>
+          <li><b id="cd-h">--</b><small>Hours</small></li>
+          <li><b id="cd-m">--</b><small>Mins</small></li>
+          <li><b id="cd-s">--</b><small>Secs</small></li>
+        </ul>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://forms.gle/hJcE2ZtrJ642zCvk9" target="_blank" rel="noopener"><span>Register your team</span></a>
+        <a class="btn ghost" href="#rules"><span>Read the rules</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="band">
+  <div class="wrap">
+    <ul>
+      <li>7-a-side</li>
+      <li>Knockout</li>
+      <li>Every match has a winner</li>
+      <li>Entry &#8377;3,000 per team</li>
+    </ul>
+  </div>
+</div>
+
+<main>
+  <section id="prizes">
+    <div class="wrap">
+      <p class="eyebrow">What is on the line</p>
+      <h2 class="title">Win it all.<br>Lift the trophy.</h2>
+      <p class="lead">Cash for the top two teams, medals and trophies for both finalists, and a trophy for the best player of the tournament.</p>
+
+      <div class="podium">
+        <article class="prize runner">
+          <div>
+            <p class="rank">Second place</p>
+            <h3>Runners-up</h3>
+          </div>
+          <p class="amt">&#8377;4,000</p>
+          <ul><li>Trophy</li><li>Medals</li></ul>
+        </article>
+
+        <article class="prize champ">
+          <div>
+            <p class="rank">First place</p>
+            <h3>Champions</h3>
+          </div>
+          <p class="amt">&#8377;10,000</p>
+          <div>
+            <ul><li>Trophy</li><li>Medals</li></ul>
+            <p class="note" style="margin-top:1rem">The final winning team is crowned champion.</p>
+          </div>
+        </article>
+
+        <article class="prize best">
+          <div>
+            <p class="rank">Individual award</p>
+            <h3>Best Player</h3>
+          </div>
+          <p class="amt">Trophy</p>
+          <p class="note">One player takes home the best player trophy.</p>
+        </article>
+      </div>
+      <p class="pool"><b>&#8377;14,000</b> in cash prizes. Entry is &#8377;3,000 per team.</p>
+    </div>
+  </section>
+
+  <section id="format">
+    <div class="wrap">
+      <p class="eyebrow">Knockout format</p>
+      <h2 class="title">Win or go home.</h2>
+      <p class="lead">Fixtures are decided by the organisers and the full schedule is announced before the event. Winning teams move on. Losing teams are out.</p>
+      <ol class="steps">
+        <li>
+          <h3>Register</h3>
+          <p>Sign up your team by 13 December. Entry is &#8377;3,000 per team.</p>
+        </li>
+        <li>
+          <h3>Fixtures</h3>
+          <p>The organisers decide the match fixtures and announce the schedule before the event.</p>
+        </li>
+        <li>
+          <h3>Knockouts</h3>
+          <p>Regular matches run 20 minutes. Win and you advance. A draw goes straight to penalties.</p>
+        </li>
+        <li>
+          <h3>The final</h3>
+          <p>The last two teams play a 40-minute final for the title.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="rules">
+    <div class="wrap">
+      <p class="eyebrow">Official rulebook</p>
+      <h2 class="title">Rules of the game.</h2>
+      <p class="lead">All teams must agree to these rules before taking part.</p>
+
+      <div class="rules-top">
+        <div class="scroll-x">
+          <table class="regs">
+            <thead><tr><th scope="col">Regulation</th><th scope="col">Rule</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Players</th><td>7 per team, including goalkeeper</td></tr>
+              <tr><th scope="row">Substitutes</th><td>Unlimited</td></tr>
+              <tr><th scope="row">Substitutions</th><td>Rolling substitutions</td></tr>
+              <tr><th scope="row">Regular matches</th><td>20 minutes</td></tr>
+              <tr><th scope="row">Half-time</th><td>2 minutes</td></tr>
+              <tr><th scope="row">Final</th><td>40 minutes</td></tr>
+              <tr><th scope="row">Offside</th><td>No offside</td></tr>
+              <tr><th scope="row">Throw-ins</th><td>Kick-ins</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Draws &amp; <em>penalties</em></h3>
+          <ul class="rule-list">
+            <li>Every match must have a winner.</li>
+            <li>If a match ends in a draw, it goes directly to penalties.</li>
+            <li>3 penalty kicks per team initially.</li>
+            <li>Sudden death if the scores remain level.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rules-cols">
+        <div class="card">
+          <h3>Basic etiquette</h3>
+          <ul class="rule-list">
+            <li>Respect the referee's decisions.</li>
+            <li>Respect opponents, teammates and organisers.</li>
+            <li>Maintain sportsmanship throughout the tournament.</li>
+            <li>No fighting or unnecessary arguments.</li>
+            <li>Avoid abusive language and unsporting behaviour.</li>
+            <li>Follow the match schedule and organisers' instructions.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Team responsibilities</h3>
+          <ul class="rule-list">
+            <li>Report at least 10 minutes before kick-off.</li>
+            <li>Only registered players are allowed.</li>
+            <li>Teams must use appropriate footwear for the turf.</li>
+            <li>Late arrival may result in a walkover.</li>
+            <li>Only team captains should raise official concerns with organisers.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>General conditions</h3>
+          <ul class="rule-list">
+            <li>Referee decisions during matches are final.</li>
+            <li>Organisers reserve the right to resolve unforeseen situations.</li>
+            <li>Serious misconduct may result in disqualification.</li>
+            <li>All teams must agree to the tournament rules before participation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <div class="wrap">
+      <p class="eyebrow">Team registration</p>
+      <h2 class="title">Get your squad in.</h2>
+      <div class="reg-grid">
+        <div>
+          <p class="fee"><b>&#8377;3,000</b><span>Entry fee<br>per team</span></p>
+          <p class="deadline">Registration closes 13 December 2026</p>
+          <p class="lead">Captains register the team. Only registered players are allowed on the turf, so list everyone you plan to field, substitutes included.</p>
+          <p class="small bring">Registration is through our Google Form. One form per team, filled in by the captain.</p>
+        </div>
+
+        <div class="signup">
+          <p class="eyebrow">Register on Google Forms</p>
+          <h3>Sign up your team</h3>
+          <p>Add your team name, captain and squad on the form. Registration closes 13 December 2026 and the entry fee is &#8377;3,000 per team.</p>
+          <a class="btn" href="https://forms.gle/hJcE2ZtrJ642zCvk9" target="_blank" rel="noopener"><span>Open registration form</span></a>
+          <p class="small">Opens in a new tab. By registering, your team agrees to the tournament rules above.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="motto">Play fair. <b>Play hard.</b> Respect the game.</p>
+    <p>Last Whistle FC &middot; 7-a-side football tournament &middot; Same game. Different stories.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* Countdown to the registration deadline (end of 13 Dec 2026, India time). */
+  var target = new Date("2026-12-13T23:59:59+05:30").getTime();
+  var ids = { d: "cd-d", h: "cd-h", m: "cd-m", s: "cd-s" };
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+  function tick() {
+    var left = target - Date.now();
+    if (left <= 0) {
+      var strap = document.querySelector(".strap span");
+      if (strap) strap.textContent = "Registration closed";
+      var label = document.querySelector(".clock-label");
+      if (label) label.textContent = "Registration closed on 13 December 2026";
+      ["d", "h", "m", "s"].forEach(function (k) { document.getElementById(ids[k]).textContent = "00"; });
+      return false;
+    }
+    var s = Math.floor(left / 1000);
+    document.getElementById(ids.d).textContent = pad(Math.floor(s / 86400));
+    document.getElementById(ids.h).textContent = pad(Math.floor((s % 86400) / 3600));
+    document.getElementById(ids.m).textContent = pad(Math.floor((s % 3600) / 60));
+    document.getElementById(ids.s).textContent = pad(s % 60);
+    return true;
+  }
+  if (tick()) {
+    var timer = setInterval(function () { if (!tick()) clearInterval(timer); }, 1000);
+  }
+
+})();
+</script>
+
+</body></html>
